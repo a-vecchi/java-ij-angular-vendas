@@ -16,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/servico-prestados")
+@RequestMapping("/api/servicos-prestados")
 @RequiredArgsConstructor
 public class ServicoPrestadoController {
 
