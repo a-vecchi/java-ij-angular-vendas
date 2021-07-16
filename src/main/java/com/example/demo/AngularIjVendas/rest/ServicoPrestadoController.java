@@ -33,12 +33,12 @@ public class ServicoPrestadoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ServicoPrestado salvar(@RequestBody ServicoPrestadoDTO dto) {
+    public ServicoPrestado salvar(@RequestBody  @Valid ServicoPrestadoDTO dto) {
         LocalDate data = LocalDate.parse(dto.getData(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         Integer idCliente = dto.getIdCliente();
 
         Cliente cliente = clienteRepository.findById(idCliente)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Cliente inesistente."));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Serviço Prestado inesistente."));
 
         ServicoPrestado servicoPrestado = new ServicoPrestado();
         servicoPrestado.setDescricao(dto.getDescricao());
