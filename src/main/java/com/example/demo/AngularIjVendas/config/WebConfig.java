@@ -15,20 +15,20 @@ import java.util.List;
 public class WebConfig {
 
     @Bean
-    public FilterRegistrationBean<CorsFilter> crosFilterFilterRegistrationBean() {
+    public FilterRegistrationBean<CorsFilter> corsFilterFilterRegistrationBean() {
         List<String> all = Arrays.asList("*");
 
-        CorsConfiguration crosConfiguration = new CorsConfiguration();
-        crosConfiguration.setAllowedOriginPatterns(all);
-        crosConfiguration.setAllowedHeaders(all);
-        crosConfiguration.setAllowedMethods(all);
-        crosConfiguration.setAllowCredentials(true);
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.setAllowedOrigins(all);
+        corsConfiguration.setAllowedHeaders(all);
+        corsConfiguration.setAllowedMethods(all);
+        corsConfiguration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", crosConfiguration);
+        source.registerCorsConfiguration("/**", corsConfiguration);
 
-        CorsFilter crosFilter = new CorsFilter(source);
-        FilterRegistrationBean<CorsFilter> filter = new FilterRegistrationBean<>(crosFilter);
+        CorsFilter corsFilter = new CorsFilter(source);
+        FilterRegistrationBean<CorsFilter> filter = new FilterRegistrationBean<>(corsFilter);
         filter.setOrder(Ordered.HIGHEST_PRECEDENCE);
 
         return filter;

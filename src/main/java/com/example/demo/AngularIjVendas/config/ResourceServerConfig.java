@@ -12,17 +12,12 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         // super.configure(http);
-        /*http.authorizeRequests()
-                .antMatchers("/api/clientes/**").hasRole("USER")
-                .antMatchers("/api/usuarios").permitAll();*/
         http
                 .authorizeRequests()
-                /*.antMatchers("/h2-console/**").permitAll()
-                .antMatchers("/api/usuarios").permitAll()
+                .antMatchers("/**/oauth/token", "/h2-console/**", "/api/usuarios").permitAll()
                 .antMatchers(
                         "/api/clientes/**",
                         "/api/servicos-prestados/**").authenticated()
-                .anyRequest().denyAll();*/
-                .anyRequest().permitAll();
+                .anyRequest().denyAll();
     }
 }

@@ -8,9 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="angular-ij-vendas" />
-        <module name="java-ij-angular-vendas" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="angular-ij-vendas" target="1.8" />
+      <module name="java-ij-angular-vendas" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
